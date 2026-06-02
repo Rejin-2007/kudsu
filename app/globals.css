@@ -1,0 +1,48 @@
+@import "tailwindcss";
+
+:root {
+  /* Hex codes defined as variables */
+  --soft-linen: #e0e2db;
+  --dust-grey: #d2d4c8;
+  --ash-grey: #b8bdb5;
+  --cool-steel: #889696;
+  --deep-teal: #5f7470;
+  
+  /* Default Theme Colors */
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  /* Mapping your custom palette to Tailwind theme variables */
+  --color-soft-linen: var(--soft-linen);
+  --color-dust-grey: var(--dust-grey);
+  --color-ash-grey: var(--ash-grey);
+  --color-cool-steel: var(--cool-steel);
+  --color-deep-teal: var(--deep-teal);
+
+  /* Standard Next.js / Tailwind setup */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+/* 
+   Note: You no longer need the @layer utilities section. 
+   Tailwind now automatically provides:
+   - bg-soft-linen, text-soft-linen, border-soft-linen, etc.
+*/
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+}
