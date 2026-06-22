@@ -1,8 +1,11 @@
+import Achievement from "./components/Achievement";
+import Hero from "./components/Hero";
 
 export default function Home() {
   return (
     <div>
-      <p>Hello Index Page</p>
+      <Hero />
+      <Achievement />
     </div>
   );
 }

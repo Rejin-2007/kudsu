@@ -70,6 +70,55 @@ type ContentRelationshipFieldWithData<
 }[Exclude<TCustomType[number], string>["id"]];
 
 /**
+ * Item in *Achievement → AchievementImage *
+ */
+export interface AchievementDocumentDataAchievementimageItem {
+  /**
+   * image field in *Achievement → AchievementImage *
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: achievement.achievementimage[].image
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  image: prismic.ImageField<never>;
+}
+
+/**
+ * Content for Achievement documents
+ */
+interface AchievementDocumentData {
+  /**
+   * AchievementImage  field in *Achievement*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: achievement.achievementimage[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  achievementimage: prismic.GroupField<
+    Simplify<AchievementDocumentDataAchievementimageItem>
+  >;
+}
+
+/**
+ * Achievement document from Prismic
+ *
+ * - **API ID**: `achievement`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/content-modeling
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type AchievementDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<
+    Simplify<AchievementDocumentData>,
+    "achievement",
+    Lang
+  >;
+
+/**
  * Item in *Event → images*
  */
 export interface EventDocumentDataImagesItem {
@@ -168,6 +217,82 @@ export type EventDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<EventDocumentData>, "event", Lang>;
 
 /**
+ * Content for Members documents
+ */
+interface MembersDocumentData {
+  /**
+   * name field in *Members*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: members.name
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  name: prismic.RichTextField;
+
+  /**
+   * image field in *Members*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: members.image
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * position field in *Members*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: members.position
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  position: prismic.RichTextField;
+
+  /**
+   * position_number field in *Members*
+   *
+   * - **Field Type**: Number
+   * - **Placeholder**: *None*
+   * - **API ID Path**: members.position_number
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/number
+   */
+  position_number: prismic.NumberField;
+
+  /**
+   * contact details field in *Members*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: members.contact_details
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  contact_details: prismic.RichTextField;
+}
+
+/**
+ * Members document from Prismic
+ *
+ * - **API ID**: `members`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/content-modeling
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type MembersDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<
+    Simplify<MembersDocumentData>,
+    "members",
+    Lang
+  >;
+
+/**
  * Content for petition documents
  */
 interface PetitionDocumentData {
@@ -232,7 +357,11 @@ export type PetitionDocument<Lang extends string = string> =
     Lang
   >;
 
-export type AllDocumentTypes = EventDocument | PetitionDocument;
+export type AllDocumentTypes =
+  | AchievementDocument
+  | EventDocument
+  | MembersDocument
+  | PetitionDocument;
 
 declare module "@prismicio/client" {
   interface CreateClient {
@@ -255,9 +384,14 @@ declare module "@prismicio/client" {
 
   namespace Content {
     export type {
+      AchievementDocument,
+      AchievementDocumentData,
+      AchievementDocumentDataAchievementimageItem,
       EventDocument,
       EventDocumentData,
       EventDocumentDataImagesItem,
+      MembersDocument,
+      MembersDocumentData,
       PetitionDocument,
       PetitionDocumentData,
       AllDocumentTypes,
