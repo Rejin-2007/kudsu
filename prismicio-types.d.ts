@@ -357,11 +357,61 @@ export type PetitionDocument<Lang extends string = string> =
     Lang
   >;
 
+/**
+ * Item in *Upcoming Event → UpcomingImage*
+ */
+export interface UpcomingEventDocumentDataUpcomingeventimageItem {
+  /**
+   * image field in *Upcoming Event → UpcomingImage*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: upcoming_event.upcomingeventimage[].image
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  image: prismic.ImageField<never>;
+}
+
+/**
+ * Content for Upcoming Event documents
+ */
+interface UpcomingEventDocumentData {
+  /**
+   * UpcomingImage field in *Upcoming Event*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: upcoming_event.upcomingeventimage[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  upcomingeventimage: prismic.GroupField<
+    Simplify<UpcomingEventDocumentDataUpcomingeventimageItem>
+  >;
+}
+
+/**
+ * Upcoming Event document from Prismic
+ *
+ * - **API ID**: `upcoming_event`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/content-modeling
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type UpcomingEventDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<
+    Simplify<UpcomingEventDocumentData>,
+    "upcoming_event",
+    Lang
+  >;
+
 export type AllDocumentTypes =
   | AchievementDocument
   | EventDocument
   | MembersDocument
-  | PetitionDocument;
+  | PetitionDocument
+  | UpcomingEventDocument;
 
 declare module "@prismicio/client" {
   interface CreateClient {
@@ -394,6 +444,9 @@ declare module "@prismicio/client" {
       MembersDocumentData,
       PetitionDocument,
       PetitionDocumentData,
+      UpcomingEventDocument,
+      UpcomingEventDocumentData,
+      UpcomingEventDocumentDataUpcomingeventimageItem,
       AllDocumentTypes,
     };
   }

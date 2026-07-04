@@ -1,8 +1,6 @@
 import { createClient } from "@/prismicio";
 import { PrismicNextImage } from "@prismicio/next";
 import { PrismicRichText } from "@prismicio/react";
-import * as prismic from "@prismicio/client";
-import Link from "next/link";
 
 export default async function MembersPage() {
     const client = createClient();
@@ -44,7 +42,7 @@ export default async function MembersPage() {
                             className="group flex flex-col overflow-hidden rounded-2xl bg-slate-900 border border-slate-800 transition-all duration-300 hover:-translate-y-1 hover:border-amber-500/30 hover:shadow-xl hover:shadow-amber-500/5"
                         >
                             {/* Image Wrapper with Aspect Ratio */}
-                            <div className="relative aspect-[4/5] w-full overflow-hidden bg-slate-800">
+                            <div className="relative aspect-4/5 w-full overflow-hidden bg-slate-800">
                                 {member.data.image && (
                                     <PrismicNextImage
                                         field={member.data.image}
