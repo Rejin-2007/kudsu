@@ -46,13 +46,13 @@ ${form.complaint}
 `;
 
     try {
-      await emailjs.send(
-        "rejinrejin",
-        "rejinrejin",
+      const response = await emailjs.send(
+        "service_fymj5e6",     // Service ID
+        "template_kcy9mmv",    // Template ID
         {
-          message,
+          message: message,    // Template variable
         },
-        "rejinrejin"
+        "K-th3dE-aiwvi_9NO"     // Public Key
       );
 
       alert("Complaint submitted successfully.");

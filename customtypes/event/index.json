@@ -43,6 +43,13 @@
           "placeholder": ""
         }
       },
+      "end_date": {
+        "type": "Date",
+        "config": {
+          "label": "end date",
+          "placeholder": ""
+        }
+      },
       "description": {
         "type": "StructuredText",
         "config": {

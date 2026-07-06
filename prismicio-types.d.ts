@@ -182,6 +182,17 @@ interface EventDocumentData {
   date: prismic.DateField;
 
   /**
+   * end date field in *Event*
+   *
+   * - **Field Type**: Date
+   * - **Placeholder**: *None*
+   * - **API ID Path**: event.end_date
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/date
+   */
+  end_date: prismic.DateField;
+
+  /**
    * Description field in *Event*
    *
    * - **Field Type**: Rich Text
