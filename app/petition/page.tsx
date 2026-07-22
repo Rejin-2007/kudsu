@@ -4,6 +4,8 @@ import { PrismicRichText } from "@prismicio/react";
 import * as prismic from "@prismicio/client";
 import Link from "next/link";
 
+export const revalidate = 60;
+
 export default async function PetitionsPage() {
   const client = createClient();
 

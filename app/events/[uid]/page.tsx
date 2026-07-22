@@ -7,8 +7,11 @@ import { PrismicRichText } from "@prismicio/react";
 
 import { createClient } from "@/prismicio";
 
+export const revalidate = 60;
+export const dynamicParams = true;
+
 type EventPageProps = {
-  params: Promise<{ uid: string }>;
+  params: { uid: string };
 };
 
 const dateFormatter = new Intl.DateTimeFormat("en-US", {

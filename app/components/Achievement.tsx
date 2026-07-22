@@ -8,6 +8,9 @@ export default async function Achievement() {
   try {
     data = await client.getSingle("achievement");
   } catch (error) {
+    if (error instanceof Error && error.message === "No documents were returned") {
+      return null;
+    }
     console.error("Failed to fetch achievement data in component:", error);
     return null;
   }

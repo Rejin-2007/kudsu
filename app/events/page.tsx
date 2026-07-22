@@ -4,6 +4,8 @@ import { PrismicRichText } from "@prismicio/react";
 import * as prismic from "@prismicio/client";
 import Link from "next/link";
 
+export const revalidate = 60;
+
 const dateFormatter = new Intl.DateTimeFormat("en-US", {
     day: "numeric",
     month: "short",

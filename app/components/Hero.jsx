@@ -43,6 +43,7 @@ export default function HeroSection() {
             src="/logo.png"
             alt="Logo"
             fill
+            sizes="(max-width: 768px) 100vw, 18rem"
             className="object-contain invert brightness-0"
             priority
           />

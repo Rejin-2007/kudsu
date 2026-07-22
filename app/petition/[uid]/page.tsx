@@ -7,8 +7,11 @@ import { PrismicRichText } from "@prismicio/react";
 
 import { createClient } from "@/prismicio";
 
+export const revalidate = 60;
+export const dynamicParams = true;
+
 type PetitionPageProps = {
-  params: Promise<{ uid: string }>;
+  params: { uid: string };
 };
 
 async function getPetition(uid: string) {
