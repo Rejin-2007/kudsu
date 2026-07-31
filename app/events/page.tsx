@@ -65,11 +65,12 @@ export default async function EventsPage() {
                                 <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/15 to-transparent opacity-100 transition-opacity duration-500" />
 
                                 {/* Image Showcase Box */}
-                                <div className="relative aspect-[16/10] overflow-hidden bg-neutral-900 border-b border-white/[0.04]">
+                                <div className="relative aspect-[4/5] overflow-hidden bg-neutral-900 border-b border-white/[0.04]">
                                     {/* Simulated Glass Reflection Flare Layer */}
                                     <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/[0.05] to-transparent opacity-100 pointer-events-none z-10" />
 
                                     <PrismicNextImage
+                                    fallbackAlt=""
                                         loading="eager"
                                         field={event.data.cover_image}
                                         className="h-full w-full object-cover transition-transform duration-1000 ease-out group-hover:scale-[1.03] filter brightness-[0.85] group-hover:brightness-100"
