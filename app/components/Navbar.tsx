@@ -6,9 +6,9 @@ import { usePathname } from "next/navigation";
 
 const navLinks = [
   { label: "Home", href: "/" },
-  { label: "About", href: "/about" },
   { label: "Events", href: "/events" },
   { label: "Petition", href: "/petition" },
+  { label: "Community", href: "/community" },
   { label: "Members", href: "/members" },
   { label: "Magazine", href: "/magazine" },
 ];
@@ -21,7 +21,7 @@ export default function Navbar() {
     <nav className="fixed top-0 left-0 right-0 z-50 border-b border-white/10 bg-zinc-950/70 backdrop-blur-md transition-all duration-300">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
-          
+
           {/* Logo / Brand */}
           <div className="flex-shrink-0">
             <Link href="/" className="text-xl font-bold tracking-tight text-white">
@@ -38,11 +38,10 @@ export default function Navbar() {
                   <Link
                     key={link.href}
                     href={link.href}
-                    className={`relative rounded-full px-4 py-2 text-sm font-medium transition-colors duration-200 ${
-                      isActive
+                    className={`relative rounded-full px-4 py-2 text-sm font-medium transition-colors duration-200 ${isActive
                         ? "text-white bg-white/10"
                         : "text-zinc-400 hover:text-white hover:bg-white/5"
-                    }`}
+                      }`}
                   >
                     {link.label}
                   </Link>
@@ -85,11 +84,10 @@ export default function Navbar() {
                 key={link.href}
                 href={link.href}
                 onClick={() => setIsOpen(false)}
-                className={`block rounded-md px-3 py-2.5 text-base font-medium transition-colors ${
-                  isActive
+                className={`block rounded-md px-3 py-2.5 text-base font-medium transition-colors ${isActive
                     ? "bg-blue-600 text-white"
                     : "text-zinc-400 hover:bg-zinc-900 hover:text-white"
-                }`}
+                  }`}
               >
                 {link.label}
               </Link>

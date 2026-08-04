@@ -32,12 +32,12 @@ export default async function UpcomingEvent() {
             </h3>
 
             <p className="mt-0.5 text-xs text-zinc-500 dark:text-zinc-400">
-              Swipe to explore our milestones
+              Swipe to explore our upcoming events
             </p>
           </div>
 
           <span className="rounded-full bg-zinc-100 px-2.5 py-1 font-mono text-xs font-medium text-zinc-600 dark:bg-zinc-800 dark:text-zinc-300">
-            {images.length} Achievement{images.length > 1 ? "s" : ""}
+            {images.length} Event{images.length > 1 ? "s" : ""}
           </span>
         </div>
       )}
@@ -46,13 +46,13 @@ export default async function UpcomingEvent() {
         {images.map((item, index) => (
           <div
             key={`${item.image.url}-${index}`}
-            className="group relative h-44 w-72 shrink-0 snap-start overflow-hidden rounded-2xl border border-zinc-200/60 bg-zinc-100 shadow-sm transition-all duration-300 hover:scale-[1.03] hover:shadow-xl dark:border-zinc-700/40 dark:bg-zinc-800"
+            className="group relative w-64 aspect-[4/5] shrink-0 snap-start overflow-hidden rounded-2xl border border-zinc-200/60 bg-zinc-100 shadow-sm transition-all duration-300 hover:scale-[1.03] hover:shadow-xl dark:border-zinc-700/40 dark:bg-zinc-800"
           >
             <PrismicNextImage
               field={item.image}
               fallbackAlt=""
               fill
-              sizes="288px"
+              sizes="256px"
               className="object-cover transition-transform duration-500 group-hover:scale-105"
             />
 

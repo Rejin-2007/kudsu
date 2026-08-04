@@ -7,9 +7,10 @@ export default function Home() {
   return (
     <div>
       <Hero />
+      <ComplaintBox />
       <Achievement />
       <UpcomingEvent />
-      <ComplaintBox />
+
     </div>
   );
 }

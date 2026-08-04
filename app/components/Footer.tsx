@@ -1,40 +1,51 @@
 import Link from "next/link";
+import { Sparkles } from "lucide-react";
 
 export default function Footer() {
   return (
-    <footer className="mt-20 border-t border-slate-800 bg-slate-950">
-      <div className="mx-auto max-w-7xl px-6 py-12">
+    <footer className="relative mt-20 border-t border-neutral-800 bg-neutral-950 text-neutral-100 overflow-hidden">
+      {/* Background Subtle Glow Grid matching the theme */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#1f1f1f_1px,transparent_1px),linear-gradient(to_bottom,#1f1f1f_1px,transparent_1px)] bg-size-[4rem_4rem] mask-[radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] opacity-20 pointer-events-none" />
 
+      <div className="relative z-10 mx-auto max-w-7xl px-6 py-12 lg:py-16">
+        
         {/* Footer Content */}
-        <div className="flex flex-col items-center justify-center gap-4 text-center">
+        <div className="flex flex-col items-center justify-center gap-4 text-center max-w-2xl mx-auto">
+          
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-neutral-800 bg-neutral-900/60 text-xs font-medium uppercase tracking-wider text-neutral-400 backdrop-blur-sm">
+            <Sparkles className="w-3.5 h-3.5 text-neutral-300" />
+            Digital Student Union
+          </div>
 
-          <h3 className="text-2xl font-bold text-white tracking-wide">
+          <h3 className="text-2xl sm:text-3xl font-extrabold tracking-tight bg-linear-to-br from-white via-neutral-200 to-neutral-400 bg-clip-text text-transparent">
             Thank You for Visiting
           </h3>
 
-          <p className="max-w-2xl text-sm leading-7 text-slate-400">
+          <p className="text-sm leading-relaxed text-neutral-400 font-light">
             Stay connected with the University Digital Platform for the latest
             updates, events, magazines, announcements, and student activities.
           </p>
 
         </div>
 
-        {/* Divider */}
-        <div className="my-8 h-px w-full bg-linear-to-r from-transparent via-slate-700 to-transparent" />
+        {/* Divider with Center Ambient Accent */}
+        <div className="relative my-10 flex items-center justify-center">
+          <div className="h-px w-full bg-linear-to-r from-transparent via-neutral-800 to-transparent" />
+          <div className="absolute h-1 w-24 bg-linear-to-r from-transparent via-neutral-400/30 to-transparent blur-xs" />
+        </div>
 
         {/* Bottom Bar */}
-        <div className="flex flex-col items-center justify-between gap-4 text-center md:flex-row">
+        <div className="flex flex-col items-center justify-between gap-4 text-center text-xs sm:text-sm text-neutral-500 md:flex-row">
 
-          <p className="text-sm text-slate-500">
-            © {new Date().getFullYear()} Digital Student Union. All rights reserved.
-          </p>
+          <p>© {new Date().getFullYear()} Digital Student Union. All rights reserved.</p>
 
-          <p className="text-sm text-slate-400">
+          <p className="text-neutral-400">
             Designed &amp; Developed by{" "}
             <Link
-              href="https://browzess.com"
+              href="https://www.instagram.com/browzess"
               target="_blank"
-              className="font-semibold text-yellow-400 transition-colors duration-300 hover:text-yellow-300"
+              rel="noopener noreferrer"
+              className="font-semibold text-white transition-colors duration-300 hover:text-neutral-300 underline underline-offset-4 decoration-neutral-700 hover:decoration-white"
             >
               Browzess
             </Link>

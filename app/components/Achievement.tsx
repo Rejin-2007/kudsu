@@ -35,7 +35,7 @@ export default async function Achievement() {
           
           {/* Decorative Counter Indicator */}
           <span className="text-xs font-mono font-medium px-2.5 py-1 rounded-full bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-300">
-            {images.length} Achievement
+            {images.length} {images.length === 1 ? "Achievement" : "Achievements"}
           </span>
         </div>
       )}
@@ -48,14 +48,14 @@ export default async function Achievement() {
           return (
             <div 
               key={index} 
-              className="group flex-shrink-0 w-72 h-44 relative rounded-2xl overflow-hidden bg-zinc-100 dark:bg-zinc-800 border border-zinc-200/60 dark:border-zinc-700/40 shadow-sm snap-start transition-all duration-300 ease-out hover:scale-[1.03] hover:shadow-xl hover:shadow-zinc-200/40 dark:hover:shadow-none"
+              className="group flex-shrink-0 w-64 aspect-[4/5] relative rounded-2xl overflow-hidden bg-zinc-100 dark:bg-zinc-800 border border-zinc-200/60 dark:border-zinc-700/40 shadow-sm snap-start transition-all duration-300 ease-out hover:scale-[1.03] hover:shadow-xl hover:shadow-zinc-200/40 dark:hover:shadow-none"
             >
               {/* The Prismic Image */}
               <PrismicNextImage 
                 field={item.image} 
                 fallbackAlt="" 
                 fill
-                sizes="(max-width: 768px) 288px, 288px"
+                sizes="(max-width: 768px) 256px, 256px"
                 className="object-cover transition-transform duration-500 group-hover:scale-105"
               />
 
