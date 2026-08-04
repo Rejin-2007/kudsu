@@ -53,8 +53,8 @@ export default async function PetitionsPage() {
                 {/* Glossy Upper Edge Bevel Rule */}
                 <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/15 to-transparent opacity-100 transition-opacity duration-500" />
                 
-                {/* Image Showcase Box */}
-                <div className="relative aspect-[16/10] overflow-hidden bg-neutral-900 border-b border-white/[0.04]">
+                {/* Image Showcase Box - Changed aspect ratio to aspect-square (1:1 Instagram Post Ratio) */}
+                <div className="relative aspect-square overflow-hidden bg-neutral-900 border-b border-white/[0.04]">
                   {/* Simulated Glass Reflection Flare Layer */}
                   <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/[0.05] to-transparent opacity-100 pointer-events-none z-10" />
                   

@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 
 const navLinks = [
@@ -24,8 +25,15 @@ export default function Navbar() {
 
           {/* Logo / Brand */}
           <div className="flex-shrink-0">
-            <Link href="/" className="text-xl font-bold tracking-tight text-white">
-              DSU<span className="text-blue-500">.</span>
+            <Link href="/" className="flex items-center gap-2">
+              <Image
+                src="/logo.png"
+                alt="DSU Logo"
+                width={120}
+                height={40}
+                className="h-10 w-auto object-contain"
+                priority
+              />
             </Link>
           </div>
 
@@ -38,10 +46,11 @@ export default function Navbar() {
                   <Link
                     key={link.href}
                     href={link.href}
-                    className={`relative rounded-full px-4 py-2 text-sm font-medium transition-colors duration-200 ${isActive
+                    className={`relative rounded-full px-4 py-2 text-sm font-medium transition-colors duration-200 ${
+                      isActive
                         ? "text-white bg-white/10"
                         : "text-zinc-400 hover:text-white hover:bg-white/5"
-                      }`}
+                    }`}
                   >
                     {link.label}
                   </Link>
@@ -84,10 +93,11 @@ export default function Navbar() {
                 key={link.href}
                 href={link.href}
                 onClick={() => setIsOpen(false)}
-                className={`block rounded-md px-3 py-2.5 text-base font-medium transition-colors ${isActive
+                className={`block rounded-md px-3 py-2.5 text-base font-medium transition-colors ${
+                  isActive
                     ? "bg-blue-600 text-white"
                     : "text-zinc-400 hover:bg-zinc-900 hover:text-white"
-                  }`}
+                }`}
               >
                 {link.label}
               </Link>
