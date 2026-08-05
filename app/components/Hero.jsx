@@ -95,10 +95,10 @@ export default function HeroSection() {
               variants={fadeInUp}
               className="text-sm sm:text-base text-neutral-400 font-light leading-relaxed max-w-2xl"
             >
-              The Kerala University Departments Students Union (DSU) is the official elected student governing body representing Post-Graduate and FYUGP students across the 44 teaching and research departments.
-              <br /><br />
-              DSU bridges academic knowledge and student activism through progressive, inclusive campus events including the <span className="text-neutral-200 font-normal">Campus Carnival</span>, <span className="text-neutral-200 font-normal">Kerala University Film Festival</span>, <span className="text-neutral-200 font-normal">Paattukoottam</span> acoustic sessions, political seminars, and essential student welfare initiatives.
-            </motion.p>
+              The Kerala University Departments Students Union (DSU) is the official elected student governing body representing the Post-Graduate and FYUGP students across the 44 teaching and research departments of the University of Kerala. The union aims to bridge the gap between academic knowledge and student activism by creating a progressive, inclusive, and democratically active campus atmosphere. DSU conducts several highlight events such as<b className="text-white"> Campus Carnival, Kerala University Film Festival, Campus Sports, Quiz Fest, Arts Fest, Campus Fest </b>etc. The union also hosts massive, festive community celebrations for Onam, Christmas etc, alongside ive stadium-style screenings of global sports matches. 
+              <br /> <br />
+              On a routine basis, the DSU enlivens campus spaces through informal acoustic circles known as Paattukoottam, regular indie and mainstream movie screenings by the DSU Film Club, and political seminars that drive active student engagement. The union also consistently push for student welfare initiatives, including organizing university help desks, career orientations, transgender-friendly inclusive programs etc.
+             </motion.p>
           </div>
         </motion.div>
       </main>
