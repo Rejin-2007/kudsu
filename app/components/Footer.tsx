@@ -14,7 +14,7 @@ export default function Footer() {
           
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-neutral-800 bg-neutral-900/60 text-xs font-medium uppercase tracking-wider text-neutral-400 backdrop-blur-sm">
             <Sparkles className="w-3.5 h-3.5 text-neutral-300" />
-            Digital Student Union
+            DEPARTMENTS STUDENTS UNION 2025-26
           </div>
 
           <h3 className="text-2xl sm:text-3xl font-extrabold tracking-tight bg-linear-to-br from-white via-neutral-200 to-neutral-400 bg-clip-text text-transparent">
@@ -37,7 +37,7 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="flex flex-col items-center justify-between gap-4 text-center text-xs sm:text-sm text-neutral-500 md:flex-row">
 
-          <p>© {new Date().getFullYear()} Digital Student Union. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} DEPARTMENTS STUDENTS UNION 2025-26. All rights reserved.</p>
 
           <p className="text-neutral-400">
             Designed &amp; Developed by{" "}

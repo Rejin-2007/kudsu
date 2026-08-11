@@ -119,6 +119,71 @@ export type AchievementDocument<Lang extends string = string> =
   >;
 
 /**
+ * Content for community documents
+ */
+interface CommunityDocumentData {
+  /**
+   * title field in *community*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: community.title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * description field in *community*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: community.description
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  description: prismic.RichTextField;
+
+  /**
+   * poc field in *community*
+   *
+   * - **Field Type**: Number
+   * - **Placeholder**: *None*
+   * - **API ID Path**: community.poc
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/number
+   */
+  poc: prismic.NumberField;
+
+  /**
+   * link field in *community*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: community.link
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  link: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
+}
+
+/**
+ * community document from Prismic
+ *
+ * - **API ID**: `community`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/content-modeling
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type CommunityDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<
+    Simplify<CommunityDocumentData>,
+    "community",
+    Lang
+  >;
+
+/**
  * Item in *Event → images*
  */
 export interface EventDocumentDataImagesItem {
@@ -419,6 +484,7 @@ export type UpcomingEventDocument<Lang extends string = string> =
 
 export type AllDocumentTypes =
   | AchievementDocument
+  | CommunityDocument
   | EventDocument
   | MembersDocument
   | PetitionDocument
@@ -448,6 +514,8 @@ declare module "@prismicio/client" {
       AchievementDocument,
       AchievementDocumentData,
       AchievementDocumentDataAchievementimageItem,
+      CommunityDocument,
+      CommunityDocumentData,
       EventDocument,
       EventDocumentData,
       EventDocumentDataImagesItem,

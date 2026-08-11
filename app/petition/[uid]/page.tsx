@@ -135,13 +135,14 @@ export default async function PetitionDetailPage({ params }: PetitionPageProps) 
               <div className="relative overflow-hidden rounded-2xl border border-white/[0.08] bg-neutral-900 shadow-[0_30px_60px_-15px_rgba(0,0,0,0.9),inset_0_1px_1px_rgba(255,255,255,0.1)] group">
                 {/* Simulated Glass Reflection Flare Layer */}
                 <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/[0.04] to-transparent opacity-100 pointer-events-none z-10" />
+
                 <div className="absolute -inset-px bg-gradient-to-b from-white/10 to-transparent rounded-2xl opacity-100 pointer-events-none z-20" />
 
                 <PrismicNextImage
                   field={petition.data.image}
                   fallbackAlt=""
                   loading="eager"
-                  className="h-auto w-full object-cover aspect-[16/10] sm:aspect-[16/9] transition-transform duration-1000 ease-out group-hover:scale-[1.015]"
+                  className="h-auto w-full object-cover aspect-[4/5] transition-transform duration-1000 ease-out group-hover:scale-[1.015]"
                 />
               </div>
             ) : null}

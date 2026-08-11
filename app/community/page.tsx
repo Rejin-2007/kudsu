@@ -1,9 +1,9 @@
-import CommunitySection from "../components/CommunitySection";
+import CommunityGrid from "../components/CommunityGrid";
 
 export default function AboutPage() {
   return (
     <div>
-      <CommunitySection />
+      <CommunityGrid />
     </div>
   )
 }

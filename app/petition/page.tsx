@@ -76,9 +76,7 @@ export default async function PetitionsPage() {
                 <div className="flex flex-1 flex-col p-6 sm:p-8 justify-between space-y-6">
                   
                   <div className="space-y-3">
-                    <span className="block text-xs font-mono font-bold uppercase tracking-widest text-neutral-500">
-                      ID: {petition.uid}
-                    </span>
+                    
 
                     <PrismicRichText 
                       field={petition.data.issue_name} 
