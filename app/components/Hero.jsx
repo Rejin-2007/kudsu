@@ -2,9 +2,8 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { Mail, Phone, Users } from "lucide-react";
-
-// Animation Variants
+import { Mail } from "lucide-react";
+import { FaInstagram } from "react-icons/fa";// Animation Variants
 const fadeInUp = {
   hidden: { opacity: 0, y: 30 },
   visible: {
@@ -31,7 +30,7 @@ export default function HeroSection() {
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#1f1f1f_1px,transparent_1px),linear-gradient(to_bottom,#1f1f1f_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] opacity-25 pointer-events-none" />
 
       {/* 1. Header Navigation */}
-      
+
       {/* 2. Main Hero Section (Responsive Grid) */}
       {/* 2. Main Hero Section (Responsive Grid) */}
       <main className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-12 flex-1 flex flex-col justify-center">
@@ -73,32 +72,49 @@ export default function HeroSection() {
 
           {/* Text Content Block (Second on mobile, first on desktop) */}
           <div className="order-2 lg:order-1 lg:col-span-6 flex flex-col text-left space-y-6">
-            <motion.div
-              variants={fadeInUp}
-              className="inline-flex items-center gap-2 text-xs sm:text-sm font-semibold uppercase tracking-wider text-neutral-400"
-            >
-              <Users className="w-4 h-4 text-neutral-300" />
-              Official Executive Council
-            </motion.div>
-
             <motion.h1
               variants={fadeInUp}
               className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight bg-gradient-to-br from-white via-neutral-200 to-neutral-400 bg-clip-text text-transparent leading-[1.15] sm:leading-[1.15]"
             >
               DEPARTMENTS STUDENTS UNION 2025-26
+
               <span className="block text-xl sm:text-3xl font-medium text-neutral-400 mt-2">
                 UNIVERSITY OF KERALA
               </span>
+
+              {/* Contact Links */}
+              <div className="mt-5  sm:flex-row items-center justify-center gap-3 sm:gap-6">
+                {/* Email */}
+                <a
+                  href="mailto:keralauniversity.dsu@gmail.com"
+                  className="flex items-center gap-2 text-sm sm:text-base font-medium text-neutral-400 hover:text-white transition-colors"
+                  aria-label="Email Kerala University DSU"
+                >
+                  <Mail className="w-4 h-4 sm:w-5 sm:h-5" />
+                  <span>keralauniversity.dsu@gmail.com</span>
+                </a>
+                {/* Instagram */}
+                <a
+                  href="https://www.instagram.com/kerala_university_dsu?igsh=aXR2b2tqcG44NnN5"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 text-sm sm:text-base font-medium text-neutral-400 hover:text-white transition-colors"
+                  aria-label="Follow Kerala University DSU on Instagram"
+                >
+                  <FaInstagram className="w-4 h-4 sm:w-5 sm:h-5" />
+                  <span>kerala_university_dsu</span>
+                </a>
+              </div>
             </motion.h1>
 
             <motion.p
               variants={fadeInUp}
               className="text-sm sm:text-base text-neutral-400 font-light leading-relaxed max-w-2xl"
             >
-              The Kerala University Departments Students Union (DSU) is the official elected student governing body representing the Post-Graduate and FYUGP students across the 44 teaching and research departments of the University of Kerala. The union aims to bridge the gap between academic knowledge and student activism by creating a progressive, inclusive, and democratically active campus atmosphere. DSU conducts several highlight events such as<b className="text-white"> Campus Carnival, Kerala University Film Festival, Campus Sports, Quiz Fest, Arts Fest, Campus Fest </b>etc. The union also hosts massive, festive community celebrations for Onam, Christmas etc, alongside ive stadium-style screenings of global sports matches. 
+              The Kerala University Departments Students Union (DSU) is the official elected student governing body representing the Post-Graduate and FYUGP students across the 44 teaching and research departments of the University of Kerala. The union aims to bridge the gap between academic knowledge and student activism by creating a progressive, inclusive, and democratically active campus atmosphere. DSU conducts several highlight events such as<b className="text-white"> Campus Carnival, Kerala University Film Festival, Campus Sports, Quiz Fest, Arts Fest, Campus Fest </b>etc. The union also hosts massive, festive community celebrations for Onam, Christmas etc, alongside ive stadium-style screenings of global sports matches.
               <br /> <br />
               On a routine basis, the DSU enlivens campus spaces through informal acoustic circles known as Paattukoottam, regular indie and mainstream movie screenings by the DSU Film Club, and political seminars that drive active student engagement. The union also consistently push for student welfare initiatives, including organizing university help desks, career orientations, transgender-friendly inclusive programs etc.
-             </motion.p>
+            </motion.p>
           </div>
         </motion.div>
       </main>

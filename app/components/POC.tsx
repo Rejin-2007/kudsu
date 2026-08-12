@@ -1,5 +1,4 @@
 "use client"
-import React from 'react'
 import { motion } from "framer-motion";
 import { Mail, Phone } from "lucide-react";
 const POC = () => {
@@ -17,7 +16,7 @@ const POC = () => {
                 >
                     <div>
                         <span className="text-xs uppercase tracking-wider text-neutral-500 font-semibold">Leadership</span>
-                        <h3 className="text-lg sm:text-xl font-semibold text-white mt-0.5">Chairman</h3>
+                        <h3 className="text-lg sm:text-xl font-semibold text-white mt-0.5">Eby Sanal VS(Chairperson)</h3>
                     </div>
                     <div className="space-y-3">
                         <a
@@ -51,7 +50,7 @@ const POC = () => {
                 >
                     <div>
                         <span className="text-xs uppercase tracking-wider text-neutral-500 font-semibold">Leadership</span>
-                        <h3 className="text-lg sm:text-xl font-semibold text-white mt-0.5">General Secretary</h3>
+                        <h3 className="text-lg sm:text-xl font-semibold text-white mt-0.5">Meenakshi Sujeev (General Secretary)</h3>
                     </div>
                     <div className="space-y-3">
                         <a
