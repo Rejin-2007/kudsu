@@ -123,6 +123,17 @@ export type AchievementDocument<Lang extends string = string> =
  */
 interface CommunityDocumentData {
   /**
+   * image field in *community*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: community.image
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
    * title field in *community*
    *
    * - **Field Type**: Rich Text
@@ -143,6 +154,17 @@ interface CommunityDocumentData {
    * - **Documentation**: https://prismic.io/docs/fields/rich-text
    */
   description: prismic.RichTextField;
+
+  /**
+   * name field in *community*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: community.name
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  name: prismic.RichTextField;
 
   /**
    * poc field in *community*

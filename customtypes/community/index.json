@@ -12,6 +12,14 @@
           "label": "UID"
         }
       },
+      "image": {
+        "type": "Image",
+        "config": {
+          "label": "image",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
       "title": {
         "type": "StructuredText",
         "config": {
@@ -28,6 +36,15 @@
           "placeholder": "",
           "allowTargetBlank": true,
           "multi": "paragraph"
+        }
+      },
+      "name": {
+        "type": "StructuredText",
+        "config": {
+          "label": "name",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "multi": "heading4"
         }
       },
       "poc": {

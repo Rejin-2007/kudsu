@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import * as prismic from "@prismicio/client";
 
@@ -9,8 +10,10 @@ import { createClient } from "@/prismicio";
 interface Community {
   id: string;
   uid: string | null;
+  image: string | null;
   title: string;
   description: string;
+  name: string;
   poc: string;
   link: string | null;
 }
@@ -32,47 +35,54 @@ export default function CommunityGrid() {
 
           uid: document.uid ?? null,
 
-          /*
-           * title
-           *
-           * Supports both:
-           * - Text field
-           * - Structured Text field
-           */
+          /* ================================
+             Image
+          ================================= */
+
+          image: prismic.isFilled.image(document.data.image)
+            ? document.data.image.url ?? null
+            : null,
+
+          /* ================================
+             Title
+          ================================= */
+
           title:
             typeof document.data.title === "string"
               ? document.data.title
-              : prismic.asText(document.data.title) || "Untitled Community",
+              : prismic.asText(document.data.title) ||
+              "Untitled Community",
 
-          /*
-           * description
-           *
-           * Structured Text field
-           */
+          /* ================================
+             Description
+          ================================= */
+
           description:
             prismic.asText(document.data.description) || "",
 
-          /*
-           * poc
-           *
-           * Your current Prismic schema returns this as a NumberField.
-           * Convert it safely to string.
-           */
+          /* ================================
+             WhatsApp Group Name
+          ================================= */
+
+          name: prismic.asText(document.data.name) || "",
+
+          /* ================================
+             Point of Contact
+          ================================= */
+
           poc:
             document.data.poc !== null &&
-            document.data.poc !== undefined
+              document.data.poc !== undefined
               ? String(document.data.poc)
               : "",
 
-          /*
-           * link
-           *
-           * Normalize undefined -> null.
-           */
-          link:
-            prismic.isFilled.link(document.data.link)
-              ? document.data.link.url ?? null
-              : null,
+          /* ================================
+             WhatsApp / Community Link
+          ================================= */
+
+          link: prismic.isFilled.link(document.data.link)
+            ? document.data.link.url ?? null
+            : null,
         }));
 
         setCommunities(data);
@@ -98,7 +108,7 @@ export default function CommunityGrid() {
           {[1, 2, 3].map((item) => (
             <div
               key={item}
-              className="h-72 animate-pulse rounded-2xl bg-neutral-200"
+              className="h-96 animate-pulse rounded-2xl bg-neutral-200"
             />
           ))}
         </div>
@@ -118,9 +128,7 @@ export default function CommunityGrid() {
             Something went wrong
           </h2>
 
-          <p className="mt-2 text-sm text-red-600">
-            {error}
-          </p>
+          <p className="mt-2 text-sm text-red-600">{error}</p>
         </div>
       </section>
     );
@@ -152,78 +160,92 @@ export default function CommunityGrid() {
 
   return (
     <section className="mx-auto w-full max-w-7xl px-6 py-16">
-      {/* Header */}
-      {/* Community Grid */}
-
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {communities.map((community) => (
           <article
             key={community.id}
-            className="group flex h-full flex-col overflow-hidden rounded-2xl border border-neutral-200 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-neutral-300 hover:shadow-xl"
+            className="group flex h-full flex-col overflow-hidden rounded-2xl border border-neutral-200 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-neutral-300 hover:shadow-xl"
           >
-            {/* Card Header */}
+            {/* ================================
+                Community / WhatsApp Group Image
+            ================================= */}
 
-            <div className="flex items-start justify-between gap-4">
-              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-neutral-900 text-lg font-bold text-white">
-                {community.title?.charAt(0)?.toUpperCase() || "C"}
-              </div>
-
-              {community.uid && (
-                <span className="max-w-37.5 truncate rounded-full bg-neutral-100 px-3 py-1 text-xs font-medium text-neutral-500">
-                  {community.uid}
-                </span>
+            <div className="relative h-52 w-full overflow-hidden bg-neutral-100">
+              {community.image ? (
+                <Image
+                  src={community.image}
+                  alt={community.name || community.title}
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+              ) : (
+                <div className="flex h-full w-full items-center justify-center bg-neutral-900 text-5xl font-bold text-white">
+                  {community.title?.charAt(0)?.toUpperCase() || "C"}
+                </div>
               )}
             </div>
 
-            {/* Title */}
+            <div className="flex flex-1 flex-col p-6">
+              {/* UID */}
 
-            <h2 className="mt-6 text-xl font-bold tracking-tight text-neutral-900">
-              {community.title}
-            </h2>
 
-            {/* Description */}
+              {/* Community Title */}
 
-            {community.description && (
-              <p className="mt-3 line-clamp-4 text-sm leading-6 text-neutral-600">
-                {community.description}
-              </p>
-            )}
+              <h2 className="text-xl font-bold tracking-tight text-neutral-900">
+                {community.title}
+              </h2>
 
-            {/* POC */}
+              {/* WhatsApp Group Name */}
 
-            {community.poc && (
-              <div className="mt-6 rounded-xl bg-neutral-50 p-4">
-                <p className="text-[11px] font-semibold uppercase tracking-wider text-neutral-400">
-                  Point of Contact
+
+
+              {/* Description */}
+
+              {community.description && (
+                <p className="mt-4  text-sm leading-6 text-neutral-600">
+                  {community.description}
                 </p>
-
-                <p className="mt-1 text-sm font-medium text-neutral-800">
-                  {community.poc}
-                </p>
-              </div>
-            )}
-
-            {/* Link */}
-
-            <div className="mt-auto pt-6">
-              {community.link ? (
-                <Link
-                  href={community.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex w-full items-center justify-center gap-2 rounded-xl bg-neutral-900 px-4 py-3 text-sm font-semibold text-white transition-colors hover:bg-neutral-700"
-                >
-                  Visit Community
-
-                  <span className="transition-transform duration-200 group-hover:translate-x-1">
-                    →
-                  </span>
-                </Link>
-              ) : (
-                <span className="flex w-full items-center justify-center rounded-xl bg-neutral-100 px-4 py-3 text-sm font-semibold text-neutral-400">
-                  Link unavailable
-                </span>
               )}
+
+              {/* POC */}
+
+              {community.poc && (
+                <div className="mt-6 rounded-xl bg-neutral-50 p-4">
+                  <p className="text-[11px] font-semibold uppercase tracking-wider text-neutral-400">
+                    Point of Contact
+                  </p>
+
+                  <p className="mt-1 text-sm font-medium text-neutral-800">
+                    {community.poc} - {community.name}
+                  </p>
+                  <div>
+                   
+                  </div>
+                </div>
+              )}
+
+              {/* Link */}
+
+              <div className="mt-auto pt-6">
+                {community.link ? (
+                  <Link
+                    href={community.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex w-full items-center justify-center gap-2 rounded-xl bg-neutral-900 px-4 py-3 text-sm font-semibold text-white transition-colors hover:bg-neutral-700"
+                  >
+                    Join Community
+
+                    <span className="transition-transform duration-200 group-hover:translate-x-1">
+                      →
+                    </span>
+                  </Link>
+                ) : (
+                  <span className="flex w-full items-center justify-center rounded-xl bg-neutral-100 px-4 py-3 text-sm font-semibold text-neutral-400">
+                    Link unavailable
+                  </span>
+                )}
+              </div>
             </div>
           </article>
         ))}

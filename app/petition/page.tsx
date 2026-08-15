@@ -33,10 +33,10 @@ export default async function PetitionsPage() {
             ⚖️ Advocacy Registry
           </div>
           <h1 className="mt-4 text-4xl font-black tracking-tight text-white sm:text-6xl uppercase leading-none bg-gradient-to-b from-white via-neutral-200 to-neutral-500 bg-clip-text text-transparent drop-shadow-[0_4px_12px_rgba(0,0,0,0.8)]">
-            Active Petitions
+            Petitions
           </h1>
           <p className="mx-auto mt-4 text-base sm:text-lg text-neutral-400 font-light leading-relaxed max-w-xl">
-            Review public declarations, active mandates, and critical ongoing academic and structural initiatives.
+            Review petitions and representations filed by the union to address various student issues and concerns
           </p>
         </div>
 

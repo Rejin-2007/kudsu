@@ -93,11 +93,11 @@ export default async function EventsPage() {
                     </div>
 
                     <h1 className="mt-4 bg-gradient-to-b from-white via-neutral-200 to-neutral-500 bg-clip-text text-4xl font-black uppercase leading-none tracking-tight text-transparent drop-shadow-[0_4px_12px_rgba(0,0,0,0.8)] sm:text-6xl">
-                        Exhibitions & Events
+                        EVENTS
                     </h1>
 
                     <p className="mx-auto mt-4 max-w-xl text-base font-light leading-relaxed text-neutral-400 sm:text-lg">
-                        Stay updated with the latest luxury experiences, gatherings, and key corporate milestones curated at our Centre.
+                        Stay updated with all the academic and festive events conducted by the Union at campus
                     </p>
 
                 </div>

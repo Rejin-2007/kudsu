@@ -16,7 +16,8 @@ const POC = () => {
                 >
                     <div>
                         <span className="text-xs uppercase tracking-wider text-neutral-500 font-semibold">Leadership</span>
-                        <h3 className="text-lg sm:text-xl font-semibold text-white mt-0.5">Eby Sanal VS(Chairperson)</h3>
+                        <h3 className="text-lg sm:text-xl font-semibold text-white mt-0.5">Eby Sanal VS </h3>
+                        <p className="text-sm text-neutral-400">Chairperson</p>
                     </div>
                     <div className="space-y-3">
                         <a
@@ -50,7 +51,8 @@ const POC = () => {
                 >
                     <div>
                         <span className="text-xs uppercase tracking-wider text-neutral-500 font-semibold">Leadership</span>
-                        <h3 className="text-lg sm:text-xl font-semibold text-white mt-0.5">Meenakshi Sujeev (General Secretary)</h3>
+                        <h3 className="text-lg sm:text-xl font-semibold text-white mt-0.5">Meenakshi Sujeev </h3>
+                        <p className="text-sm text-neutral-400">General Secretary</p>
                     </div>
                     <div className="space-y-3">
                         <a
